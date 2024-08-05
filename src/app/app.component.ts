@@ -1,13 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [CommonModule, HeaderComponent, ProductListComponent, CartComponent],
+  template: `
+    <app-header></app-header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <app-product-list></app-product-list>
+        </div>
+        <div class="col-md-4">
+          <app-cart></app-cart>
+        </div>
+      </div>
+    </div>
+  `,
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'StoreZ';
+  title = 'ecommerce-site';
 }

@@ -1,1 +1,15 @@
-<p>cart works!</p>
+<div class="cart">
+  <h2>Giỏ hàng</h2>
+  <ul class="cart-items">
+    @for (item of cartItems; track item.id) {
+      <li class="cart-item">
+        <span class="item-name">{{ item.name }}</span>
+        <span class="item-price">{{ item.price | currency:'VND':'symbol':'1.0-0' }} x {{ item.quantity }}</span>
+        <button class="remove-btn" (click)="removeFromCart(item.id)">Xóa</button>
+      </li>
+    }
+  </ul>
+  <div class="cart-total">
+    <strong>Tổng cộng: {{ cartTotal | currency:'VND':'symbol':'1.0-0' }}</strong>
+  </div>
+</div>

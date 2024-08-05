@@ -1,1 +1,11 @@
-<p>product-list works!</p>
+<h2>Sản phẩm</h2>
+<div class="product-grid">
+  @for (product of products; track product.id) {
+    <div class="product-card">
+      <img [src]="product.image" [alt]="product.name" class="product-image">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <p class="product-price">{{ product.price | currency:'VND':'symbol':'1.0-0' }}</p>
+      <button class="add-to-cart-btn" (click)="addToCart(product)">Thêm vào giỏ hàng</button>
+    </div>
+  }
+</div>
